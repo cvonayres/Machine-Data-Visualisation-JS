@@ -1,0 +1,17 @@
+{
+  "name": "machine_data_visualisation_js",
+  "version": "0.0.1",
+  "description": "see readme",
+  "main": "1 - Server/1.1 - Server Frontend/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "git": "https://github.com/cvonayres/Machine-Data-Visualisation-JS",
+  "author": "ECM",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "axios": "^1.6.7",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  }
+}
