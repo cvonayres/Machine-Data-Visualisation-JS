@@ -6,7 +6,8 @@ import { fileURLToPath } from "url";
 
 const app = express();
 const port = 32000;
-const API_URL = "http://localhost:56000";
+const API_URL = "http://localhost:56000"
+;
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const pathIndex = __dirname + "/views/index.ejs"
 
@@ -17,14 +18,17 @@ app.use(bodyParser.json());
 
 // Route to render the main page
 app.get("/", async (req, res) => {
-  res.render(pathIndex);
-  // try {
-  //   const response = await axios.get(`${API_URL}/index`);
-  //   console.log(response);
-  //   res.render("index.ejs", { posts: response.data });
-  // } catch (error) {
-  //   res.status(500).json({ message: "Error fetching /index" });
-  // }
+  try {
+    const response = await axios.get(`${API_URL}/index`);
+    console.log(response);
+    res.render(pathIndex, { posts: response.data });
+  } catch (error) {
+    if (error.code === "ECONNREFUSED"){
+      console.log("Database Server is not responding");
+      res.render(pathIndex);
+    }
+    console.log(error.code);
+  }
 });
   
 app.listen(port, () => {

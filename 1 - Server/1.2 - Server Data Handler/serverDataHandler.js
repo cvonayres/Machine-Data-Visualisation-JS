@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get("/index", (req, res) =>{
-    res.json({ name: test,});
+    res.status(501);
 })
 
 app.listen(port, () => {

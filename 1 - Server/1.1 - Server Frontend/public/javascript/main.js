@@ -1,6 +1,5 @@
 const track = document.getElementById("image_track")
 
-// Set initial values for dataset properties as numbers
 track.dataset.percentage = 0;
 track.dataset.prevPercentage = 0;
 
